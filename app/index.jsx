@@ -7,7 +7,7 @@ export default function App() {
     <View style={styles.container}>
       <Text className="text-3xl">DevConnect</Text>
       <StatusBar style="auto" />
-        <Link href="/profile">Profile</Link>
+        <Link href="/home">Home</Link>
     </View>
   );
 }
