@@ -5,7 +5,7 @@ import { Link } from 'expo-router';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>DevConnect</Text>
+      <Text className="text-3xl">DevConnect</Text>
       <StatusBar style="auto" />
         <Link href="/profile">Profile</Link>
     </View>
