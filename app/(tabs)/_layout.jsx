@@ -43,8 +43,7 @@ const Layout = () => {
         options={{
           tabBarLabel: 'Chat',
           tabBarIcon: ({ size, color }) => (
-            <MaterialCommunityIcons name="message-outline" size={size} color={color} />
-          ),
+        <Ionicons name="chatbubble-ellipses-outline" size={size} color={color} />),
         }}
       />
       <Tabs.Screen

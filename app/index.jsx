@@ -25,8 +25,9 @@ export default function App() {
         </Text>
       </View>
 
+
         <View style={styles.button}>
-          <Link href="/home" style={styles.buttonText}>Get Started</Link>
+          <Link href="/sign-in" style={styles.buttonText}>Get Started</Link>
         </View>
     </View>
   </SafeAreaView>
