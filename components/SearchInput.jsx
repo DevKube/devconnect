@@ -13,13 +13,21 @@ const SearchInput = ({ initialQuery }) => {
       <TextInput
         className="text-base mt-0.5 text-white flex-1 font-pregular"
         value={query}
-        placeholder="Explore Hackathons"
+        placeholder="Explore your interests"
         placeholderTextColor="#CDCDE0"
         onChangeText={(e) => setQuery(e)}
       />
 
       <TouchableOpacity
         onPress={() => {
+          if (query === "")
+            return Alert.alert(
+              "Missing Query",
+              "Please input something to search results across database"
+            );
+
+          if (pathname.startsWith("/search")) router.setParams({ query });
+          else router.push(`/search/${query}`);
         }}
       >
         <Image source={icons.search} className="w-5 h-5" resizeMode="contain" />
