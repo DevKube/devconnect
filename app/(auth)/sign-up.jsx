@@ -6,6 +6,7 @@ import CustomButton from "../../components/CustomButton";
 import FormField from "../../components/FormField";
 import LottieView from "lottie-react-native";
 import { images } from "../../constants";
+import { createUser } from "../../lib/appwrite";
 
 const SignUp = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -16,12 +17,21 @@ const SignUp = () => {
   });
 
   const submit = async () => {
-    if (form.email === "" || form.password === "") {
+    if (!form.username ==="" || form.email === "" || form.password === "") {
       Alert.alert("Error", "Please fill in all fields");
     }
 
     setSubmitting(true);
-
+    try {
+      await createUser(form.email, form.password, form.username);
+      router.replace("/home");
+    }
+    catch (error) {
+      Alert.alert("Error", error.message);
+    }
+    finally {
+      setSubmitting(false);
+    }
   };
 
   return (
