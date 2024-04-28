@@ -3,6 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../../constants/colors';
+import { StatusBar } from 'expo-status-bar';
 
 const Layout = () => {
   return (
@@ -56,6 +57,7 @@ const Layout = () => {
         }}
       />
     </Tabs>
+    
   );
 };
 
