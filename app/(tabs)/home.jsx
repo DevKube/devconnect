@@ -63,14 +63,14 @@ const nearhack = [
     id:1,
     title: 'Hackathon 1',
     image: require('../../assets/images/hack1.webp'),
-    registrations: 100,
+    location: "Bennett University",
     stars: 4
   },
   {
     id:2,
     title: 'Hackathon 1',
     image: require('../../assets/images/hack1.webp'),
-    registrations: 100,
+    location: "Amity University",
     stars: 4
   },
 ]
@@ -183,9 +183,9 @@ const home = () => {
                             {/* <View className="flex-row space-x-1">
                               <Text className="text-xs text-gray-600">{item.stars}</Text>
                             </View> */}
-                            <View className="flex-row space-x-1">
-                            <Ionicons name="people" size={24} color="white" />
-                              <Text className="text-xs text-gray-600">{item.registrations} Registrations</Text>
+                            <View className="flex-row space-x-2">
+                            <Entypo name="location" size={15} color="white" />
+                              <Text className="text-xs text-gray-400">{item.location} </Text>
                             </View>
                           </View>
                         </View>
