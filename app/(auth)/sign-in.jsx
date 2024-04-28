@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, ScrollView, Dimensions, Alert, Image, StyleSheet } from "react-native";
+import CustomButton from "../../components/CustomButton";
+import FormField from "../../components/FormField";
 import LottieView from "lottie-react-native";
 import { images } from "../../constants";
-import { CustomButton, FormField } from "../../components";
 
 const SignIn = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -43,7 +44,7 @@ const SignIn = () => {
             Log in to DevConnect
           </Text>
 
-          {/* <FormField
+          <FormField
             title="Email"
             value={form.email}
             handleChangeText={(e) => setForm({ ...form, email: e })}
@@ -63,8 +64,7 @@ const SignIn = () => {
             handlePress={submit}
             containerStyles="mt-7"
             isLoading={isSubmitting}
-          /> */}
-
+          />
           <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">
               Don't have an account?
@@ -73,7 +73,7 @@ const SignIn = () => {
               href="/sign-up"
               className="text-lg font-psemibold text-purple-500"
             >
-              Signup
+              Sign Up
             </Link>
           </View>
         </View>

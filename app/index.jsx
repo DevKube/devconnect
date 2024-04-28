@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView } from 'react-native'
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import LottieView from 'lottie-react-native';
+import CustomButton from '../components/CustomButton';
 
 export default function App() {
   return (
@@ -25,10 +26,12 @@ export default function App() {
         </Text>
       </View>
 
-
-        <View style={styles.button}>
-          <Link href="/sign-in" style={styles.buttonText}>Get Started</Link>
-        </View>
+      <CustomButton
+            title="Get Started"
+            handlePress={() => router.push('/sign-in')}
+            containerStyles="w-full mt-7"
+          />
+ 
     </View>
   </SafeAreaView>
 );
@@ -42,6 +45,7 @@ container: {
 title: {
   fontSize: 28,
   fontWeight: '500',
+  fontFamily: 'Poppins-SemiBold',
   color: '#bee9eb',
   textAlign: 'center',
   marginBottom: 12,
