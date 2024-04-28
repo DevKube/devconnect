@@ -1,12 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView } from 'react-native'
-import { Link, router } from 'expo-router';
+import { Link, router, Redirect } from 'expo-router';
 import LottieView from 'lottie-react-native';
 import CustomButton from '../components/CustomButton';
+import Loader from '../components/Loader';
+import { useGlobalContext } from '../context/GlobalProvider';
 
 export default function App() {
+
+  const { loading, isLogged } = useGlobalContext();
+
+  if (!loading && isLogged) return <Redirect href="/home" />;
   return (
     <SafeAreaView style={styles.container}>
+      <Loader isLoading={loading} />
     <StatusBar style="auto" />
     <View style={styles.hero}>
     <LottieView source={require('../assets/animations/sphere.json')}
