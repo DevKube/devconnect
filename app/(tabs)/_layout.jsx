@@ -4,6 +4,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../../constants/colors';
 import { StatusBar } from 'expo-status-bar';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const Layout = () => {
   return (
@@ -42,9 +43,10 @@ const Layout = () => {
       <Tabs.Screen
         name="chat"
         options={{
-          tabBarLabel: 'Chat',
+          tabBarLabel: 'Add Post',
           tabBarIcon: ({ size, color }) => (
-        <Ionicons name="chatbubble-ellipses-outline" size={size} color={color} />),
+            <MaterialIcons name="add-circle" size={size} color={color} />
+      ),
         }}
       />
       <Tabs.Screen
