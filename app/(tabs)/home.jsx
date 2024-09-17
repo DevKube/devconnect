@@ -10,68 +10,83 @@ import { Entypo } from '@expo/vector-icons';
 import GradientButton from "../../components/GradientButton";
 import HackCard from "../../components/HackCard";
 import { Ionicons } from '@expo/vector-icons';
+import { Linking } from 'react-native';
 
+
+const openURL = async (url) => {
+  // Check if the URL can be handled
+  const supported = await Linking.canOpenURL(url);
+  if (supported) {
+    // Open the URL if it is supported
+    await Linking.openURL(url);
+  } else {
+    // Alert the user if the URL is not supported
+    Alert.alert(`Don't know how to open this URL: ${url}`);
+  }
+};
 
 
 const themes = ['Blockchain',  'Cybersecurity', 'Cloud Computing', 'Web Development', 'Mobile Development', 'AI']
 const featured = [
   {
     id:1,
-    title: 'Hackathon 1',
+    title: 'HackFest',
     image: require('../../assets/images/hack1.webp'),
     registrations: 100,
     stars: 4
   },
   {
     id:2,
-    title: 'Hackathon 1',
-    image: require('../../assets/images/hack1.webp'),
-    registrations: 100,
+    title: 'Innovate X',
+    image: require('../../assets/images/hack2.webp'),
+    registrations: 250,
     stars: 4
   },
   {
     id:3,
-    title: 'Hackathon 1',
-    image: require('../../assets/images/hack1.webp'),
-    registrations: 100,
+    title: 'Code Cubicle',
+    image: require('../../assets/images/hack3.webp'),
+    registrations: 1000,
     stars: 4
   },
   {
     id:4,
-    title: 'Hackathon 1',
-    image: require('../../assets/images/hack1.webp'),
+    title: 'NMIT Hacks',
+    image: require('../../assets/images/hack4.webp'),
     registrations: 100,
     stars: 4
   },
   {
     id:5,
-    title: 'Hackathon 1',
-    image: require('../../assets/images/hack1.webp'),
-    registrations: 100,
+    title: 'Aventus',
+    image: require('../../assets/images/hack5.webp'),
+    registrations: 1000,
     stars: 4
   },
   {
     id:6,
-    title: 'Hackathon 1',
-    image: require('../../assets/images/hack1.webp'),
-    registrations: 100,
+    title: 'HackBlocks ',
+    image: require('../../assets/images/hack6.webp'),
+    registrations: 250,
     stars: 4
   },
 ]
 const nearhack = [
   {
     id:1,
-    title: 'Hackathon 1',
-    image: require('../../assets/images/hack1.webp'),
-    location: "Bennett University",
-    stars: 4
+    title: 'HackWithDelhi',
+    image: require('../../assets/images/ha2.webp'),
+    location: "Greater Noida",
+    stars: 4,
+    url: "https://hackwithdelhi.devfolio.co/"
   },
   {
     id:2,
-    title: 'Hackathon 1',
-    image: require('../../assets/images/hack1.webp'),
-    location: "Amity University",
-    stars: 4
+    title: 'Sui Overflow',
+    image: require('../../assets/images/ha3.webp'),
+    location: "NCR - Online",
+    stars: 4,
+    url: "https://sui-overflow.devfolio.co/"
   },
 ]
 const home = () => {
@@ -190,7 +205,7 @@ const home = () => {
                           </View>
                         </View>
                         <View className="flex justify-center items-center">
-                          <GradientButton value="Preview" buttonClass="py-2 px-5" />
+                        <GradientButton value="Preview" buttonClass="py-2 px-5" onPress={() => openURL(item.url)} />
                         </View>
                       </TouchableOpacity>
                      
